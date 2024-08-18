@@ -1,0 +1,14 @@
+body{
+    background: #1a3c2e;
+}
+
+#divContainer{
+    border: 2px solid #4e746d;   
+    min-width: 480px; 
+    min-height: 480px;
+    max-width: 480px;
+    max-height: 480px;
+    display: flex;
+    gap: 0px;
+    padding: 0px;
+}
