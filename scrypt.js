@@ -4,13 +4,15 @@ const divChild = document.createElement("div");
 divChild.classList.add("child");
 divParent.classList.add("parent");
 divParent.style.cssText = "display: flex; flex-direction: column; " +
-"padding: 0px; margin: 0px;";
-divChild.style.cssText = "padding: 0px; margin: 0px;";
+"padding: 0px; margin: 0px; width: 100%; justify-content: space-around;";
+divChild.style.cssText = "padding: 0px; margin: 0px; height: 100%";
 let amountOfDivs = 16;
 
-function createGrid(amountOfDivs){
-    for (let index = 0; index < amountOfDivs; index++) {       
-        divContainer.appendChild(divParent);
+function createGrid(amount){
+    for (let index = 0; index < amount; index++) {       
+        divContainer.appendChild(divParent.cloneNode(true));
         console.log("div inserted");
     }
 }
+
+createGrid(amountOfDivs);
