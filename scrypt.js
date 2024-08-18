@@ -4,8 +4,11 @@ const divChild = document.createElement("div#Child");
 divParent.style.cssText = "display: flex; flex-direction: column; " +
 "padding: 0px; margin: 0px;";
 divChild.style.cssText = "padding: 0px; margin: 0px;";
-let amoutOfDivs = 16;
+let amountOfDivs = 16;
 
-function createGrid(amoutOfDivs){
-
+function createGrid(amountOfDivs){
+    for (let index = 0; index < amountOfDivs; index++) {       
+        divContainer.appendChild(divParent);
+        console.log("div inserted");
+    }
 }
