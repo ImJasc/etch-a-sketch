@@ -1,24 +1,26 @@
 const divContainer = document.querySelector("div#divContainer");
-const divParent = document.createElement("div");
-const divChild = document.createElement("div");
-divChild.id = "child";
-divParent.id= "parent";
-divParent.style.cssText = "display: flex; flex-direction: column; " +
-"padding: 0px; margin: 0px; width: 100%; justify-content: space-around;";
-divChild.style.cssText = "padding: 0px; margin: 0px; height: 100%";
 let amountOfDivs = 16;
-
-function appendChilds(amount){
-    for (let index = 0; index < amount; index++) {       
-        divParent.appendChild(divChild.cloneNode(true));        
-        console.log("div inserted");
-    }
-}
 
 function createGrid(amount){
     for (let index = 0; index < amount; index++) {
-        divContainer.appendChild(divParent.cloneNode(true));        
-    }
+        let divParent = document.createElement("div");
+        divParent.classList.add ("parent");
+        divParent.style.cssText = "display: flex; flex-direction: column; " +
+        "padding: 0px; margin: 0px; width: 100%; justify-content: space-around;";
+        divParent.id = "parent#"+(index+1);
+        for (let index = 0; index < amount; index++) {         
+            let divChild = document.createElement("div");
+            divChild.classList.add ("child");
+            divChild.id = 'child#'+(index+1); 
+            divChild.style.cssText = "padding: 0px; margin: 0px; height: 100%";     
+            divChild.addEventListener("mouseover", event =>{
+                event.target.style.background = randomColor();
+            })
+            divParent.appendChild(divChild);                    
+            console.log("div inserted");
+        }
+        divContainer.appendChild(divParent);
+    }    
 }
 
 function randomColor() {
@@ -29,9 +31,5 @@ function randomColor() {
     return 'rgb(' + color.join(', ') + ')';
 } 
 
-appendChilds(amountOfDivs);
 createGrid(amountOfDivs);
 
-document.querySelector("div#child").addEventListener('mouseover', event => {
-    event.target.style.backgroundColor = randomColor();
-});
