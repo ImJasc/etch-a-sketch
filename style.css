@@ -1,5 +1,10 @@
 body{
     background: #1a3c2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #divContainer{
@@ -13,4 +18,18 @@ body{
     padding: 0px;
     justify-content: space-around;
     background: white;
+}
+
+button{
+    max-width: 480px;
+    max-height: 480px;
+    border-radius: 30px;
+    font-size: 36px;
+    padding: 0px 12px 0px 12px;
+    background: #c7dfc5;
+    transition: background 0.5s;
+}
+
+button:hover{
+    background: #ffffff;
 }
